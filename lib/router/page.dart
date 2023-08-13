@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:haina/pages/login/page.dart';
 import 'package:haina/pages/new/page.dart';
 import 'package:haina/pages/setting/binding.dart';
 import 'package:haina/pages/setting/page.dart';
+import 'package:haina/pages/sign_in/bindings.dart';
+import 'package:haina/pages/sign_in/page.dart';
 import 'package:haina/pages/unknown/index.dart';
 import 'package:haina/router/observers.dart';
 import 'package:haina/router/router.dart';
@@ -26,6 +27,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.signIn,
       page: () => const SignInPage(),
+      binding: SignInBinding(),
     ),
     // GetPage(
     //   name: AppRoutes.SIGN_UP,

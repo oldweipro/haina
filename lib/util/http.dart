@@ -179,7 +179,7 @@ class HttpUtil {
   Map<String, dynamic>? getAuthorizationHeader() {
     var headers = <String, dynamic>{};
     if (Get.isRegistered<UserStore>() && UserStore.to.hasToken == true) {
-      headers['Authorization'] = 'Bearer ${UserStore.to.token}';
+      headers['x-token'] = '${UserStore.to.token}';
     }
     return headers;
   }
@@ -218,7 +218,7 @@ class HttpUtil {
     var response = await dio.get(
       path,
       queryParameters: queryParameters,
-      options: options,
+      options: requestOptions,
       cancelToken: cancelToken,
     );
     return response.data;

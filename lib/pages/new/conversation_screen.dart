@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haina/router/router.dart';
+import 'package:haina/store/store.dart';
 
 class ConversationScreen extends StatelessWidget {
   const ConversationScreen({super.key});
@@ -10,14 +11,22 @@ class ConversationScreen extends StatelessWidget {
     return Expanded(
       child: ListView(
         children: <Widget>[
-          SizedBox(height: 7),
+          const SizedBox(height: 7),
           ElevatedButton(
             onPressed: () {
               Get.toNamed<void>(AppRoutes.setting);
             },
-            child: Text("按钮"),
+            child: const Text("按钮"),
           ),
-          Text("😂哈哈哈"),
+          const SizedBox(height: 7),
+          const Text("😂哈哈哈"),
+          const SizedBox(height: 7),
+          ElevatedButton(
+            onPressed: () {
+              UserStore.to.onLogout();
+            },
+            child: const Text("退出登陆"),
+          ),
         ],
       ),
     );

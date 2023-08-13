@@ -29,10 +29,10 @@ class UserStore extends GetxController {
   void onInit() {
     super.onInit();
     token = StorageService.to.getString(STORAGE_USER_TOKEN_KEY);
-    var profileOffline = StorageService.to.getString(STORAGE_USER_PROFILE_KEY);
-    if (profileOffline.isNotEmpty) {
-      _profile(UserLoginResponseEntity.fromJson(jsonDecode(profileOffline)));
-    }
+    // var profileOffline = StorageService.to.getString(STORAGE_USER_PROFILE_KEY);
+    // if (profileOffline.isNotEmpty) {
+    //   _profile(UserLoginResponseEntity.fromJson(jsonDecode(profileOffline)));
+    // }
   }
 
   // 保存 token
@@ -51,7 +51,7 @@ class UserStore extends GetxController {
   }
 
   // 保存 profile
-  Future<void> saveProfile(UserLoginResponseEntity profile) async {
+  Future<void> saveProfile(Map<String, dynamic> profile) async {
     _isLogin.value = true;
     StorageService.to.setString(STORAGE_USER_PROFILE_KEY, jsonEncode(profile));
   }
