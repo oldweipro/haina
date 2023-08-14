@@ -1,4 +1,4 @@
-import 'package:haina/model/conversation.dart';
+import 'package:haina/model/response_result.dart';
 import 'package:haina/model/user.dart';
 import 'package:haina/common/util/http.dart';
 

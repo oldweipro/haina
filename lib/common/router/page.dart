@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:haina/component/chat.dart';
+import 'package:haina/pages/chat/binding.dart';
+import 'package:haina/pages/chat/page.dart';
 import 'package:haina/pages/new/page.dart';
 import 'package:haina/pages/setting/binding.dart';
 import 'package:haina/pages/setting/page.dart';
@@ -18,7 +21,7 @@ class AppPages {
     // 免登陆
     GetPage(
       name: AppRoutes.initial,
-      page: () => NewPage(),
+      page: () => const NewPage(),
       // binding: HomeBinding(),
       // middlewares: [
       //   RouteWelcomeMiddleware(priority: 1),
@@ -35,15 +38,18 @@ class AppPages {
     //   binding: SignUpBinding(),
     // ),
     //
-    // // 需要登录
-    // GetPage(
-    //   name: AppRoutes.Application,
-    //   page: () => ApplicationPage(),
-    //   binding: ApplicationBinding(),
-    //   middlewares: [
-    //     RouteAuthMiddleware(priority: 1),
-    //   ],
-    // ),
+    GetPage(
+      name: AppRoutes.chat,
+      page: () => const ChatPage(),
+      binding: ChatBinding(),
+      // middlewares: [
+      //   RouteAuthMiddleware(priority: 1),
+      // ],
+    ),
+    GetPage(
+      name: AppRoutes.chatOld,
+      page: () => const ChatWindow(),
+    ),
     //
     // 分类列表
     GetPage(

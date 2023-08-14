@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:haina/api/conversation.dart';
 import 'package:haina/model/conversation.dart';
+import 'package:haina/model/response_result.dart';
 
 class ConversationController extends GetxController {
   final conversationList = <Conversation>[].obs;
@@ -14,8 +15,6 @@ class ConversationController extends GetxController {
     ConversationRequest request = ConversationRequest(conversationType: 0);
     HainaResponse response =
         await ConversationApi.getCurrentUserConversationList(params: request);
-    print("===================");
-    print(response);
     conversationList.value = await ConversationRepository().getConversations();
     super.onInit();
   }

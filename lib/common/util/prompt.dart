@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:haina/controller/prompt.dart';
+import 'package:haina/model/prompt.dart';
 import 'package:http/http.dart' as http;
 
 

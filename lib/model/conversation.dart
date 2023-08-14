@@ -19,25 +19,6 @@ class ConversationRequest {
       );
 }
 
-class HainaResponse {
-  int? code;
-  String? msg;
-  dynamic data;
-
-  HainaResponse({
-     this.code,
-     this.msg,
-     this.data,
-  });
-
-  factory HainaResponse.fromJson(Map<String, dynamic> json) =>
-      HainaResponse(
-        code: json["code"],
-        msg: json["msg"],
-        data: json["data"],
-      );
-}
-
 class Conversation {
   String name;
   String description;

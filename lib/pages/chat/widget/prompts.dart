@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:haina/controller/prompt.dart';
 import 'package:get/get.dart';
 import 'package:haina/model/prompt.dart';
 

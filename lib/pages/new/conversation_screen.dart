@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:haina/api/conversation.dart';
 import 'package:haina/common/router/router.dart';
 import 'package:haina/common/store/store.dart';
-import 'package:haina/model/conversation.dart';
 
 class ConversationScreen extends StatelessWidget {
   const ConversationScreen({super.key});
 
-  void getProductListFunc() async {
-    HainaResponse res = await ConversationApi.getProductList();
-    print(res);
-  }
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -29,9 +23,10 @@ class ConversationScreen extends StatelessWidget {
           const SizedBox(height: 7),
           ElevatedButton(
             onPressed: () {
-              getProductListFunc();
+              Get.toNamed(AppRoutes.chat);
+              // Get.toNamed(AppRoutes.chatOld);
             },
-            child: const Text("test"),
+            child: const Text("聊天页面"),
           ),
           ElevatedButton(
             onPressed: () {

@@ -1,9 +1,11 @@
+import 'package:haina/model/chat/message.dart';
 import 'package:haina/model/conversation.dart';
+import 'package:haina/model/response_result.dart';
 import 'package:haina/common/util/http.dart';
 
 class ConversationApi {
   /// 获取分页列表
-  static Future<HainaResponse> getCurrentUserConversationList({
+  static Future<HainaResponse<ConversationData>> getCurrentUserConversationList({
     ConversationRequest? params,
     bool refresh = false,
     bool cacheDisk = false,
@@ -14,7 +16,8 @@ class ConversationApi {
       refresh: refresh,
       cacheDisk: cacheDisk,
     );
-    return HainaResponse.fromJson(response);
+    print('object:$response');
+    return HainaResponse<ConversationData>.fromJson(response);
   }
 
   /// 获取分页列表

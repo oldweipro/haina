@@ -5,6 +5,9 @@ class AppRoutes {
   static const notFound = '/notFound';
   static const setting = '/setting';
 
+  static const chat = '/chat';
+  static const chatOld = '/chatOld';
+
   static const application = '/application';
   static const category = '/category';
 }

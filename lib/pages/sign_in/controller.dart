@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haina/api/user.dart';
-import 'package:haina/model/conversation.dart';
+import 'package:haina/model/response_result.dart';
 import 'package:haina/model/user.dart';
 import 'package:haina/pages/sign_in/state.dart';
 import 'package:haina/common/router/router.dart';
