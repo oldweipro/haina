@@ -1,9 +1,9 @@
 import 'package:haina/model/conversation.dart';
-import 'package:haina/util/http.dart';
+import 'package:haina/common/util/http.dart';
 
 class ConversationApi {
   /// 获取分页列表
-  static Future<ConversationResponse> getCurrentUserConversationList({
+  static Future<HainaResponse> getCurrentUserConversationList({
     ConversationRequest? params,
     bool refresh = false,
     bool cacheDisk = false,
@@ -14,6 +14,21 @@ class ConversationApi {
       refresh: refresh,
       cacheDisk: cacheDisk,
     );
-    return ConversationResponse.fromJson(response);
+    return HainaResponse.fromJson(response);
+  }
+
+  /// 获取分页列表
+  static Future<HainaResponse> getProductList({
+    ConversationRequest? params,
+    bool refresh = false,
+    bool cacheDisk = false,
+  }) async {
+    var response = await HttpUtil().get(
+      '/product/getProductList?page=1&pageSize=10',
+      queryParameters: params?.toJson(),
+      refresh: refresh,
+      cacheDisk: cacheDisk,
+    );
+    return HainaResponse.fromJson(response);
   }
 }

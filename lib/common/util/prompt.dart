@@ -2,14 +2,12 @@ import 'dart:convert';
 import 'package:haina/controller/prompt.dart';
 import 'package:http/http.dart' as http;
 
-const RAW_FILE_URL = "https://raw.githubusercontent.com/";
-const MIRRORF_FILE_URL = "https://raw.fgit.ml/";
 
 Future<List<Prompt>> getPrompts() async {
   final List<Prompt> prompts = [];
   final response = await http.get(
     Uri.parse(
-        '$RAW_FILE_URL/bravekingzhang/awesome-chatgpt-prompts-zh/main/prompts-zh.json'),
+        'https://pan.oldwei.com/d/file/json/prompts.json?sign=UdEckFD4tbx8fVA21NiwhC_DH1AGTGYv1PwltzHNjK0=:0'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8'
     },

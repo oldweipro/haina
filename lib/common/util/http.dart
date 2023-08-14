@@ -4,10 +4,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart' hide FormData;
-import 'package:haina/constant/cache.dart';
-import 'package:haina/constant/server.dart';
-import 'package:haina/store/store.dart';
-import 'package:haina/util/loading.dart';
+import 'package:haina/common/constant/index.dart';
+import 'package:haina/common/store/store.dart';
+import 'package:haina/common/util/loading.dart';
 
 /*
   * http 操作类
@@ -97,6 +96,9 @@ class HttpUtil {
         UserStore.to.onLogout();
         EasyLoading.showError(eInfo.message);
         break;
+      case 403:
+        EasyLoading.showError(eInfo.message);
+        break;
       case 502:
         EasyLoading.showError(eInfo.message);
         break;
@@ -120,17 +122,15 @@ class HttpUtil {
       case DioExceptionType.badResponse:
         {
           try {
-            int errCode =
-                error.response != null ? error.response!.statusCode! : -1;
-            // String errMsg = error.response.statusMessage;
-            // return ErrorEntity(code: errCode, message: errMsg);
+            int errCode = error.response != null ? error.response!.statusCode! : -1;
+            String errMsg = error.response!.statusMessage!;
             switch (errCode) {
               case 400:
                 return ErrorEntity(code: errCode, message: "请求语法错误");
               case 401:
-                return ErrorEntity(code: errCode, message: "没有权限");
+                return ErrorEntity(code: errCode, message: "请登录您的账号");
               case 403:
-                return ErrorEntity(code: errCode, message: "服务器拒绝执行");
+                return ErrorEntity(code: errCode, message: "无权限");
               case 404:
                 return ErrorEntity(code: errCode, message: "无法连接服务器");
               case 405:
@@ -179,7 +179,7 @@ class HttpUtil {
   Map<String, dynamic>? getAuthorizationHeader() {
     var headers = <String, dynamic>{};
     if (Get.isRegistered<UserStore>() && UserStore.to.hasToken == true) {
-      headers['x-token'] = '${UserStore.to.token}';
+      headers['x-token'] = UserStore.to.token;
     }
     return headers;
   }

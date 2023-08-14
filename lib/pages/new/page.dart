@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haina/constant/constants.dart';
+import 'package:haina/common/constant/constants.dart';
 import 'package:haina/pages/new/color_palettes_screen.dart';
 import 'package:haina/pages/new/conversation_screen.dart';
 import 'package:haina/pages/new/elevation_screen.dart';
@@ -24,7 +24,7 @@ class _HomeState extends State<NewPage> with SingleTickerProviderStateMixin {
   // 中等布局
   bool showMediumSizeLayout = false;
 
-  // 大尺寸，也就是说，这个是控制桌面端的，const double largeWidthBreakpoint = 1500;
+  // 大尺寸，也就是说，这个是控制桌面端的，const double largeWidthBreakpoint = 1300;
   bool showLargeSizeLayout = false;
 
   // 这是主页默认值
@@ -89,7 +89,7 @@ class _HomeState extends State<NewPage> with SingleTickerProviderStateMixin {
     });
   }
 
-  // 创建页面
+  // 创建导航页面
   Widget createScreenFor(
       ScreenSelected screenSelected, bool showNavBarExample) {
     switch (screenSelected) {
@@ -107,14 +107,14 @@ class _HomeState extends State<NewPage> with SingleTickerProviderStateMixin {
   // 创建AppBar
   PreferredSizeWidget createAppBar() {
     return AppBar(
-      title: const Text('Material 3'),
+      title: const Text('海纳AI'),
       actions:
           !showMediumSizeLayout && !showLargeSizeLayout ? [] : [Container()],
     );
   }
 
   // 菜单栏的副菜单
-  Widget _trailingActions() => Column(
+  Widget _trailingActions() => const Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [],
       );

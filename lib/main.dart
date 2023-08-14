@@ -3,13 +3,13 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:haina/configs/translations.dart';
+import 'package:haina/common/configs/translations.dart';
 import 'package:haina/controller/controller.dart';
 import 'package:haina/pages/setting/controller.dart';
-import 'package:haina/router/page.dart';
-import 'package:haina/router/router.dart';
-import 'package:haina/service/service.dart';
-import 'package:haina/store/store.dart';
+import 'package:haina/common/router/page.dart';
+import 'package:haina/common/router/router.dart';
+import 'package:haina/common/service/service.dart';
+import 'package:haina/common/store/store.dart';
 
 void main() async {
   await GetStorage.init();

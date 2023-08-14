@@ -4,8 +4,8 @@ import 'package:haina/api/user.dart';
 import 'package:haina/model/conversation.dart';
 import 'package:haina/model/user.dart';
 import 'package:haina/pages/sign_in/state.dart';
-import 'package:haina/router/router.dart';
-import 'package:haina/store/user.dart';
+import 'package:haina/common/router/router.dart';
+import 'package:haina/common/store/user.dart';
 
 class SignInController extends GetxController {
   final state = SignInState();
@@ -47,7 +47,7 @@ class SignInController extends GetxController {
       password: passController.value.text,
     );
 
-    ConversationResponse userProfile = await UserApi.login(
+    HainaResponse userProfile = await UserApi.login(
       params: params,
     );
     Map<String, dynamic> user = userProfile.data as Map<String, dynamic>;

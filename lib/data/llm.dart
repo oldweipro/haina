@@ -2,7 +2,7 @@ import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/foundation.dart';
 import 'package:haina/model/conversation.dart';
 import 'package:haina/pages/setting/controller.dart';
-import 'package:haina/util/bing_search.dart';
+import 'package:haina/common/util/bing_search.dart';
 import 'package:vibration/vibration.dart';
 
 abstract class LLM {

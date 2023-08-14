@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:haina/constant/storage.dart';
-import 'package:haina/service/service.dart';
+import 'package:haina/common/constant/storage.dart';
+import 'package:haina/common/service/service.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class ConfigStore extends GetxController {

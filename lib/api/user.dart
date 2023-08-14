@@ -1,18 +1,18 @@
 import 'package:haina/model/conversation.dart';
 import 'package:haina/model/user.dart';
-import 'package:haina/util/http.dart';
+import 'package:haina/common/util/http.dart';
 
 /// 用户
 class UserApi {
   /// 登录
-  static Future<ConversationResponse> login({
+  static Future<HainaResponse> login({
     UserLoginRequestEntity? params,
   }) async {
     var response = await HttpUtil().post(
       '/base/emailLogin',
       data: params?.toJson(),
     );
-    return ConversationResponse.fromJson(response);
+    return HainaResponse.fromJson(response);
   }
 
   /// 注册

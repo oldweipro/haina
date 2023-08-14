@@ -6,8 +6,8 @@ import 'package:haina/pages/setting/page.dart';
 import 'package:haina/pages/sign_in/bindings.dart';
 import 'package:haina/pages/sign_in/page.dart';
 import 'package:haina/pages/unknown/index.dart';
-import 'package:haina/router/observers.dart';
-import 'package:haina/router/router.dart';
+import 'package:haina/common/router/observers.dart';
+import 'package:haina/common/router/router.dart';
 
 class AppPages {
   static const initial = AppRoutes.initial;

@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:haina/api/user.dart';
-import 'package:haina/constant/storage.dart';
+import 'package:haina/common/constant/storage.dart';
 import 'package:haina/model/user.dart';
-import 'package:haina/router/router.dart';
-import 'package:haina/service/service.dart';
+import 'package:haina/common/router/router.dart';
+import 'package:haina/common/service/service.dart';
 
 class UserStore extends GetxController {
   static UserStore get to => Get.find();

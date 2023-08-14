@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:haina/router/page.dart';
+import 'package:haina/common/router/page.dart';
 
 class RouteObservers<R extends Route<dynamic>> extends RouteObserver<R> {
   @override

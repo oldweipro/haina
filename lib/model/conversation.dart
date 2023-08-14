@@ -19,19 +19,19 @@ class ConversationRequest {
       );
 }
 
-class ConversationResponse {
-  int code;
-  String msg;
+class HainaResponse {
+  int? code;
+  String? msg;
   dynamic data;
 
-  ConversationResponse({
-    required this.code,
-    required this.msg,
-    required this.data,
+  HainaResponse({
+     this.code,
+     this.msg,
+     this.data,
   });
 
-  factory ConversationResponse.fromJson(Map<String, dynamic> json) =>
-      ConversationResponse(
+  factory HainaResponse.fromJson(Map<String, dynamic> json) =>
+      HainaResponse(
         code: json["code"],
         msg: json["msg"],
         data: json["data"],

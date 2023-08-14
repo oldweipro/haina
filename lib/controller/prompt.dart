@@ -1,4 +1,4 @@
-import 'package:haina/util/prompt.dart';
+import 'package:haina/common/util/prompt.dart';
 import 'package:get/get.dart';
 
 class PromptController extends GetxController {
