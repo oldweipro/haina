@@ -48,27 +48,27 @@ List<Widget> barWithBadgeDestinations = [
 const List<NavigationDestination> appBarDestinations = [
   NavigationDestination(
     tooltip: '',
-    icon: Icon(Icons.widgets_outlined),
-    label: 'Components',
-    selectedIcon: Icon(Icons.widgets),
+    icon: Icon(Icons.question_answer_outlined),
+    label: '聊一聊',
+    selectedIcon: Icon(Icons.question_answer),
   ),
   NavigationDestination(
     tooltip: '',
-    icon: Icon(Icons.format_paint_outlined),
-    label: 'Color',
-    selectedIcon: Icon(Icons.format_paint),
+    icon: Icon(Icons.group_outlined),
+    label: '数字人',
+    selectedIcon: Icon(Icons.group),
   ),
   NavigationDestination(
     tooltip: '',
-    icon: Icon(Icons.text_snippet_outlined),
-    label: 'Typography',
-    selectedIcon: Icon(Icons.text_snippet),
+    icon: Icon(Icons.auto_awesome_outlined),
+    label: '绘玩',
+    selectedIcon: Icon(Icons.auto_awesome),
   ),
   NavigationDestination(
     tooltip: '',
-    icon: Icon(Icons.invert_colors_on_outlined),
-    label: 'Elevation',
-    selectedIcon: Icon(Icons.opacity),
+    icon: Icon(Icons.manage_accounts_outlined),
+    label: '我的',
+    selectedIcon: Icon(Icons.manage_accounts),
   ),
 ];
 
@@ -126,8 +126,8 @@ class _NavigationBarsState extends State<NavigationBars> {
         destinations: widget.isExampleBar && widget.isBadgeExample
             ? barWithBadgeDestinations
             : widget.isExampleBar
-            ? exampleBarDestinations
-            : appBarDestinations,
+                ? exampleBarDestinations
+                : appBarDestinations,
       ),
     );
 
@@ -165,6 +165,7 @@ class ComponentDecoration extends StatefulWidget {
 
 const smallSpacing = 10.0;
 const double widthConstraint = 450;
+
 class _ComponentDecorationState extends State<ComponentDecoration> {
   final focusNode = FocusNode();
 
@@ -190,7 +191,7 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
             ),
             ConstrainedBox(
               constraints:
-              const BoxConstraints.tightFor(width: widthConstraint),
+                  const BoxConstraints.tightFor(width: widthConstraint),
               // Tapping within the a component card should request focus
               // for that component's children.
               child: Focus(
@@ -250,7 +251,6 @@ const List<ExampleDestination> labelDestinations = <ExampleDestination>[
       'School', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
   ExampleDestination('Work', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
 ];
-
 
 class NavigationDrawerSection extends StatefulWidget {
   const NavigationDrawerSection({super.key});

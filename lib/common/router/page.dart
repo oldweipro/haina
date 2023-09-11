@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:haina/common/router/observers.dart';
+import 'package:haina/common/router/router.dart';
 import 'package:haina/component/chat.dart';
 import 'package:haina/pages/chat/binding.dart';
 import 'package:haina/pages/chat/page.dart';
-import 'package:haina/pages/new/page.dart';
+import 'package:haina/pages/home/page.dart';
 import 'package:haina/pages/setting/binding.dart';
 import 'package:haina/pages/setting/page.dart';
 import 'package:haina/pages/sign_in/bindings.dart';
 import 'package:haina/pages/sign_in/page.dart';
 import 'package:haina/pages/unknown/index.dart';
-import 'package:haina/common/router/observers.dart';
-import 'package:haina/common/router/router.dart';
 
 class AppPages {
   static const initial = AppRoutes.initial;
@@ -21,7 +21,7 @@ class AppPages {
     // 免登陆
     GetPage(
       name: AppRoutes.initial,
-      page: () => const NewPage(),
+      page: () => const HomePage(),
       // binding: HomeBinding(),
       // middlewares: [
       //   RouteWelcomeMiddleware(priority: 1),
