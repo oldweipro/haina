@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:haina/common/constant/constants.dart';
 import 'package:haina/pages/home/color_palettes_screen.dart';
+import 'package:haina/pages/home/controller.dart';
 import 'package:haina/pages/home/conversation_screen.dart';
 import 'package:haina/pages/home/elevation_screen.dart';
 import 'package:haina/pages/home/navigation.dart';
 import 'package:haina/pages/home/typography_screen.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomeState();
-}
-
-class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  late final AnimationController controller;
-  late final CurvedAnimation railAnimation;
   bool controllerInitialized = false;
 
   // 中等布局
@@ -28,33 +23,13 @@ class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin {
   // 这是主页默认值
   int screenIndex = ScreenSelected.conversation.value;
 
-  @override
-  initState() {
-    super.initState();
-    controller = AnimationController(
-      duration: Duration(milliseconds: transitionLength.toInt() * 2),
-      value: 0,
-      vsync: this,
-    );
-    railAnimation = CurvedAnimation(
-      parent: controller,
-      curve: const Interval(0.5, 1.0),
-    );
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
   // 尺寸发生变化
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
     final double width = MediaQuery.of(context).size.width;
-    final AnimationStatus status = controller.status;
+    final AnimationStatus status = controller.animationController.status;
     if (width > mediumWidthBreakpoint) {
       if (width > largeWidthBreakpoint) {
         showMediumSizeLayout = false;
@@ -65,19 +40,20 @@ class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin {
       }
       if (status != AnimationStatus.forward &&
           status != AnimationStatus.completed) {
-        controller.forward();
+        controller.animationController.forward();
       }
     } else {
       showMediumSizeLayout = false;
       showLargeSizeLayout = false;
       if (status != AnimationStatus.reverse &&
           status != AnimationStatus.dismissed) {
-        controller.reverse();
+        controller.animationController.reverse();
       }
     }
     if (!controllerInitialized) {
       controllerInitialized = true;
-      controller.value = width > mediumWidthBreakpoint ? 1 : 0;
+      controller.animationController.value =
+          width > mediumWidthBreakpoint ? 1 : 0;
     }
   }
 
@@ -120,15 +96,15 @@ class _HomeState extends State<HomePage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: controller,
+      animation: controller.animationController,
       builder: (context, child) {
         return NavigationTransition(
           scaffoldKey: scaffoldKey,
-          animationController: controller,
-          railAnimation: railAnimation,
+          animationController: controller.animationController,
+          railAnimation: controller.railAnimation,
           appBar: createAppBar(),
-          body: createScreenFor(
-              ScreenSelected.values[screenIndex], controller.value == 1),
+          body: createScreenFor(ScreenSelected.values[screenIndex],
+              controller.animationController.value == 1),
           navigationRail: NavigationRail(
             extended: showLargeSizeLayout,
             destinations: navRailDestinations,
