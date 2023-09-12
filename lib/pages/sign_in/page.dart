@@ -17,7 +17,7 @@ class SignInPage extends GetView<SignInController> {
             controller: controller.emailController,
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.search),
+              prefixIcon: Icon(Icons.account_box_outlined),
               labelText: '邮箱',
               hintText: '请输入邮箱',
               // helperText: 'supporting text',
@@ -26,30 +26,23 @@ class SignInPage extends GetView<SignInController> {
           ),
           TextField(
             controller: controller.passController,
+            obscureText: controller.state.passwordVisible.value,
             keyboardType: TextInputType.visiblePassword,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.search),
+            decoration: InputDecoration(
+              prefixIcon: const Icon(Icons.keyboard_alt_outlined),
               labelText: '密码',
               hintText: '请输入密码',
-              // helperText: 'supporting text',
               filled: true,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  controller.state.passwordVisible.value
+                      ? Icons.visibility
+                      : Icons.visibility_off,
+                ),
+                onPressed: controller.onPressedVisiblePassword,
+              ),
             ),
           ),
-          // // email input
-          // inputTextEdit(
-          //   controller: controller.emailController,
-          //   keyboardType: TextInputType.emailAddress,
-          //   hintText: "邮箱",
-          //   marginTop: 0,
-          //   // autofocus: true,
-          // ),
-          // // password input
-          // inputTextEdit(
-          //   controller: controller.passController,
-          //   keyboardType: TextInputType.visiblePassword,
-          //   hintText: "密码",
-          //   isPassword: true,
-          // ),
 
           // 注册、登录 横向布局
           Container(
@@ -58,7 +51,8 @@ class SignInPage extends GetView<SignInController> {
             child: Row(
               children: [
                 ElevatedButton(
-                    onPressed: controller.handleSignIn, child: Text("登录")),
+                    onPressed: controller.handleSignIn,
+                    child: const Text("登录")),
                 const Spacer(),
               ],
             ),
@@ -71,13 +65,16 @@ class SignInPage extends GetView<SignInController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            _buildInputForm(),
-            const Spacer(),
-          ],
+    return GetX<SignInController>(
+      init: controller,
+      builder: (controller) => Scaffold(
+        body: Center(
+          child: Column(
+            children: [
+              _buildInputForm(),
+              const Spacer(),
+            ],
+          ),
         ),
       ),
     );

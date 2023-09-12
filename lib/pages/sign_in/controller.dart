@@ -8,15 +8,18 @@ import 'package:haina/common/router/router.dart';
 import 'package:haina/common/store/user.dart';
 
 class SignInController extends GetxController {
-  final state = SignInState();
-
   SignInController();
+  final state = SignInState();
 
   // email的控制器
   final TextEditingController emailController = TextEditingController();
 
   // 密码的控制器
   final TextEditingController passController = TextEditingController();
+
+  onPressedVisiblePassword() async {
+    state.passwordVisible.value = !state.passwordVisible.value;
+  }
 
   // final MyRepository repository;
   // SignInController({@required this.repository}) : assert(repository != null);

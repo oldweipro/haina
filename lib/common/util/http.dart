@@ -94,7 +94,7 @@ class HttpUtil {
     switch (eInfo.code) {
       case 401:
         UserStore.to.onLogout();
-        EasyLoading.showError(eInfo.message);
+        // EasyLoading.showError(eInfo.message);
         break;
       case 403:
         EasyLoading.showError(eInfo.message);
@@ -123,7 +123,7 @@ class HttpUtil {
         {
           try {
             int errCode = error.response != null ? error.response!.statusCode! : -1;
-            String errMsg = error.response!.statusMessage!;
+            // String errMsg = error.response!.statusMessage!;
             switch (errCode) {
               case 400:
                 return ErrorEntity(code: errCode, message: "请求语法错误");
