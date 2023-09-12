@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haina/pages/setting/controller.dart';
 
-class SettingPage extends GetResponsiveView<SettingController> {
-  SettingPage({super.key});
+class SettingPage extends GetView<SettingController> {
+  const SettingPage({super.key});
 
   @override
-  Widget? builder() {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('settings'.tr),
-      ),
-      body: GetX<SettingController>(builder: (controller) {
-        return ListView(
+  Widget build(BuildContext context) {
+    return GetX<SettingController>(
+      init: controller,
+      builder: (controller) => Scaffold(
+        appBar: AppBar(
+          title: Text('settings'.tr),
+        ),
+        body: ListView(
           children: [
             const Divider(),
             ListTile(
@@ -296,8 +297,8 @@ class SettingPage extends GetResponsiveView<SettingController> {
                     })
                 : const SizedBox(),
           ],
-        );
-      }),
+        ),
+      ),
     );
   }
 }

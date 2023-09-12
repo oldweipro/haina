@@ -7,9 +7,7 @@ import 'package:haina/pages/home/navigation.dart';
 import 'package:haina/pages/home/typography_screen.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({
-    super.key,
-  });
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomeState();

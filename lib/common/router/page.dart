@@ -54,7 +54,7 @@ class AppPages {
     // 分类列表
     GetPage(
       name: AppRoutes.setting,
-      page: () => SettingPage(),
+      page: () => const SettingPage(),
       binding: SettingBinding(),
     ),
   ];

@@ -5,6 +5,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:haina/common/util/package.dart';
 
 class SettingController extends GetxController {
+  SettingController();
+
   final isObscure = true.obs;
   final openAiKey = "".obs;
   final youCode = "".obs;
