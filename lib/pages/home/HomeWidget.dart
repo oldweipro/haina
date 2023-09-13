@@ -94,14 +94,14 @@ class _HomeWidgetState extends State<HomeWidget> with SingleTickerProviderStateM
   Widget createScreenFor(
       ScreenSelected screenSelected, bool showNavBarExample) {
     switch (screenSelected) {
+      case ScreenSelected.conversation:
+        return const ConversationScreen();
       case ScreenSelected.color:
         return const ColorPalettesScreen();
       case ScreenSelected.typography:
         return const TypographyScreen();
-      case ScreenSelected.elevation:
+      case ScreenSelected.me:
         return const ElevationScreen();
-      case ScreenSelected.conversation:
-        return const ConversationScreen();
     }
   }
 

@@ -59,7 +59,7 @@ enum ScreenSelected {
   conversation(0),
   color(1),
   typography(2),
-  elevation(3);
+  me(3);
 
   const ScreenSelected(this.value);
   final int value;

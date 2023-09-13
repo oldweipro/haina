@@ -13,8 +13,8 @@ class ConversationController extends GetxController {
   @override
   void onInit() async {
     ConversationRequest request = ConversationRequest(conversationType: 0);
-    HainaResponse response =
-        await ConversationApi.getCurrentUserConversationList(params: request);
+    // HainaResponse response =
+    //     await ConversationApi.getCurrentUserConversationList(params: request);
     conversationList.value = await ConversationRepository().getConversations();
     super.onInit();
   }

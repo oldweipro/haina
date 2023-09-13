@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
     Get.put(ConversationController());
     Get.put(MessageController());
     Get.put(PromptController());
+    Get.put(SettingController());
     return ScreenUtilInit(
         designSize: const Size(360, 690),
         minTextAdapt: true,
