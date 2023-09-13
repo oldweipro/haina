@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:haina/pages/sign_in/controller.dart';
+import 'package:haina/pages/sign_in/widget/aidea_widget.dart';
+import 'package:haina/pages/sign_in/widget/login_widget.dart';
 
 class SignInPage extends GetView<SignInController> {
   const SignInPage({super.key});
@@ -65,18 +67,17 @@ class SignInPage extends GetView<SignInController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetX<SignInController>(
-      init: controller,
-      builder: (controller) => Scaffold(
-        body: Center(
-          child: Column(
-            children: [
-              _buildInputForm(),
-              const Spacer(),
-            ],
-          ),
-        ),
-      ),
+    return LoginWidget(
+      avatarImage: 'assets/avatar/avatar.png',
+      onLoginClick: () {
+        print('onLoginClick');
+      },
+      googleSignIn: () {
+        print('googleSignIn');
+      },
+      navigatePage: () {
+        print('navigatePage');
+      },
     );
   }
 }
