@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:haina/common/configs/translations.dart';
 import 'package:haina/controller/controller.dart';
+import 'package:haina/pages/home/controller.dart';
 import 'package:haina/pages/setting/controller.dart';
 import 'package:haina/common/router/page.dart';
 import 'package:haina/common/router/router.dart';
@@ -25,7 +26,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Get.put(SettingController());
     Get.put(ConversationController());
     Get.put(MessageController());
     Get.put(PromptController());
